@@ -1,0 +1,543 @@
+/* Estilos gerais */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #121212;
+  color: white;
+}
+
+/* Estilos do Header */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.625rem;
+  background-color: #1a1a1a;
+}
+
+.logo {
+  font-size: 3.125rem;
+  color: white;
+  font-family: 'Arial', sans-serif;  /* Fonte limpa e moderna */
+  font-weight: bold;  /* Torna o texto mais forte */
+  letter-spacing: 2px;  /* Espaçamento entre as letras */
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);  /* Sombra para dar profundidade */
+  transition: color 0.3s ease, transform 0.3s ease;  /* Transições suaves */
+}
+
+.logo:hover {
+  color: #fdd835;  /* Cor amarela no hover */
+  transform: scale(1.1);  /* Efeito de aumento ao passar o mouse */
+  text-shadow: 2px 2px 12px rgba(0, 0, 0, 0.5);  /* Sombra mais intensa no hover */
+}
+
+.search-container {
+  display: flex;
+  align-items: center;
+  background-color: #333;
+  border-radius: 2.188rem;
+  padding: 0.625rem;
+  width: 50rem;
+  height: 3.125rem; /* Ajustei a altura para melhor alinhamento */
+  position: relative;
+}
+
+.search-container .material-icons {
+  color: white;
+  font-size: 1.5rem;
+  margin-left: 10px;
+}
+
+.search-bar {
+  flex: 1;
+  margin-left: 10px;
+  padding: 5px;
+  border: none;
+  border-radius: 5px;
+  background-color: transparent;
+  color: white;
+  font-size: 20px;
+  height: 30px; /* Ajustei a altura do input */
+}
+
+.clear-icon {
+  position: absolute;
+  right: 15px; /* Ajustei a posição para que o "X" fique alinhado ao lado direito */
+  cursor: pointer;
+  color: white;
+  font-size: 24px;
+  display: none; /* Inicialmente invisível */
+}
+
+.search-bar:focus + .clear-icon, /* Exibe o "X" quando o campo de pesquisa está em foco */
+.search-bar:not(:placeholder-shown) + .clear-icon {
+  display: block; /* Exibe o "X" quando houver algo no campo */
+}
+
+/* Estilos dos Botões do Header (Home, Desejos, Configurações) */
+.header button {
+  background-color: transparent; /* Sem fundo */
+  color: white;
+  border: 2px solid transparent; /* Borda transparente */
+  font-size: 20px;
+  cursor: pointer;
+  transition: color 0.3s, transform 0.3s;
+  padding: 5px 15px; /* Adicionando espaçamento para os botões */
+}
+
+.header button:hover {
+  color: #ff5733; /* Texto laranja no hover */
+  transform: translateY(-5px); /* O texto se eleva ao passar o mouse */
+}
+
+
+
+
+/* Estilização do Carrossel de Filmes */
+.movie-carousel {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;  
+  grid-template-rows: 50px 50px; 
+  overflow: hidden;
+  gap: 30px;
+  padding: 20px;
+  transition: transform 0.5s ease;
+}
+
+.movie {
+  text-align: center;
+  cursor: pointer;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  opacity: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  position: relative; /* Para garantir que os elementos não afetem o layout */
+}
+
+
+/* Manter as divs no layout, mas torná-las invisíveis sem mudar o fluxo */
+.movie.hidden {
+  opacity: 0; /* Torna a div invisível */
+  pointer-events: none; /* Impede interações com elementos invisíveis */
+}
+
+/* Efeito de zoom ao passar o mouse sobre a div do filme */
+.movie:hover {
+  transform: scale(1.05);
+}
+
+.movie a {
+  color: rgb(17, 79, 211);
+  font-size: 1.1em;
+  text-decoration: none;
+  font-weight: bold;
+  margin-bottom: 10px;
+  transition: color 0.3s ease;
+}
+
+/* Efeito de hover no link */
+.movie a:hover {
+  color: #1d59b8;
+}
+
+/* Estilização da imagem do filme */
+.movie img {
+  border-radius: 10px;
+  object-fit: cover;
+  margin-bottom: 15px;
+  width: 100%;
+  height: 350px;
+}
+
+/* Estilização dos botões */
+.movie button {
+  padding: 10px 15px;
+  margin-top: 10px;
+  background-color: #ff7f00;
+  border: none;
+  border-radius: 30px;
+  color: white;
+  font-size: 1em;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-bottom: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.movie button:hover {
+  background-color: #e76f00;
+  transform: translateY(-4px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+.movie button:active {
+  transform: translateY(1px);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.movie button:focus {
+  outline: none;
+  border: 2px solid #ff7f00;
+  box-shadow: 0 0 0 3px rgba(255, 127, 0, 0.3);
+}
+
+/* Mudança de cursor para indicar que o carrossel está sendo arrastado */
+.movie-carousel {
+  cursor: grab;  /* Quando o mouse está fora do carrossel */
+}
+
+.movie-carousel:active {
+  cursor: grabbing;  /* Quando o mouse está pressionado */
+}
+
+/* Impede a seleção de texto ao arrastar o carrossel */
+.movie-carousel {
+  user-select: none;  /* Impede a seleção de texto */
+}
+
+/* Estilos do Rodapé */
+.footer {
+  display: flex;
+  justify-content: space-around;
+  padding: 10px;
+  background-color: #1a1a1a;
+}
+
+.footer button {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 20px;
+}
+
+/* Estilos do Detalhe do Filme */
+.details {
+  padding: 20px;
+  text-align: center;
+}
+
+.hidden {
+  display: none;
+}
+
+.screen {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+/* Estilos gerais para outros botões */
+button {
+  background-color: #72aca2; /* Cor de fundo */
+  color: white;
+  border: none;
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s, box-shadow 0.3s ease;
+}
+
+button:hover {
+  background-color: #cdf008; /* Cor de fundo escura quando passar o mouse */
+  transform: scale(1.05); /* Efeito de aumento do botão */
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2); /* Sombra suave para destacar o botão */
+}
+
+/* Estilos para a lista de desejos */
+#wishlist .movie {
+  text-align: left;
+  width: 120px;
+  margin-right: 10px;
+}
+
+/* Botão de limpar a lista de desejos */
+#clear-wishlist {
+  margin-top: 70px;
+}
+
+
+/* Estilos para o Modo Claro */
+.light-theme {
+  background-color: #ffffff; /* Fundo claro */
+  color: #121212; /* Texto escuro */
+}
+
+/* Estilos para o Modo Escuro */
+.dark-theme {
+  background-color: #121212; /* Fundo escuro */
+  color: #ffffff; /* Texto claro */
+}
+
+/* O estilo de botões deve ser ajustado para todos os temas */
+button {
+  background-color: #ff5733;
+  color: white;
+  border: none;
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #c44533;
+}
+
+/* Alteração do tema nos botões de navegação (header) */
+header button {
+  background-color: transparent;
+  color: inherit; /* Cor do texto segue o tema */
+  font-size: 18px;
+  transition: color 0.3s ease;
+}
+
+header button:hover {
+  color: #d67e6b; /* Cor de destaque ao passar o mouse */
+}
+
+/* Estilo do carrossel de filmes */
+.movie-carousel {
+  display: flex;
+  gap: 20px;
+  padding: 20px;
+  overflow: hidden;
+  transition: transform 0.5s ease;
+}
+
+/* Estilo das imagens dos filmes */
+.movie img {
+  width: 400px;
+  height: 550px;
+  border-radius: 10px;
+  transition: transform 0.3s ease;
+}
+
+/* Alteração de cor das imagens e do texto do título ao passar o mouse */
+.movie:hover {
+  transform: scale(1.05);
+}
+
+.movie p {
+  font-size: 16px;
+  font-weight: bold;
+  text-align: center;
+}
+
+/* Estilo de divs (exemplo: movie-details) */
+.details {
+  padding: 20px;
+  text-align: center;
+}
+
+/* Definir cores para as divs e elementos em diferentes temas */
+.light-theme .details {
+  background-color: #f9f9f9; /* fundo claro para detalhes */
+  color: #121212; /* texto escuro */
+}
+
+.dark-theme .details {
+  background-color: #1e1e1e; /* fundo escuro para detalhes */
+  color: #ffffff; /* texto claro */
+}
+
+/* Menu de navegação */
+nav {
+  background-color: #1a1a1a;
+  padding: 10px;
+}
+
+nav a {
+  color: white;
+  font-size: 18px;
+  padding: 10px;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+nav a:hover {
+  color: #ff5733; /* Cor de destaque */
+}
+
+/* Personalizar as cores do rodapé */
+.footer {
+  display: flex;
+  justify-content: space-around;
+  padding: 10px;
+  background-color: #1a1a1a;
+}
+
+.footer button {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 20px;
+}
+
+.footer button:hover {
+  color: #ff5733; /* Destaque para botões */
+}
+
+/* Configurações de lista de desejos e filmes */
+#wishlist .movie {
+  text-align: left;
+  width: 120px;
+  margin-right: 10px;
+}
+
+#clear-wishlist {
+  margin-top: 70px;
+}
+
+/* Input de pesquisa */
+.search-container {
+  display: flex;
+  align-items: center;
+  background-color: #333;
+  border-radius: 35px;
+  padding: 10px;
+  width: 800px;
+  height: 30px;
+}
+
+.search-container .material-icons {
+  color: white;
+  font-size: 24px;
+  margin-left: 10px;
+}
+
+.search-bar {
+  flex: 1;
+  margin-left: 10px;
+  padding: 5px;
+  border: none;
+  border-radius: 5px;
+  background-color: transparent;
+  color: white;
+  font-size: 20px;
+}
+
+
+/* Definindo temas claros e escuros */
+body {
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+body.light-theme {
+  background-color: #ffffff;
+  color: #000000; /* Texto preto no modo claro */
+}
+
+body.dark-theme {
+  background-color: #121212;
+  color: #ffffff; /* Texto branco no modo escuro */
+}
+
+
+
+/* Estilos do chatbot */
+.chat-container {
+  position: fixed;
+  bottom: 20px;
+  left: 70px;  /* Mover a caixa de chat para a esquerda */
+  width: 300px;
+  max-width: 90%;
+  background-color: #f1f1f1;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  padding: 10px;
+  display: none;
+  margin-left: 20px; /* Distância do botão para a caixa de chat */
+}
+
+.chat-header {
+  background-color: #333;
+  color: #fff;
+  padding: 10px;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.chat-box {
+  max-height: 300px;
+  overflow-y: auto;
+  margin: 10px 0;
+}
+
+.chat-message {
+  padding: 10px;
+  margin: 5px 0;
+  background-color: #e4e4e4;
+  border-radius: 5px;
+}
+
+.user-message {
+  background-color: #dcf8c6;
+  text-align: right;
+}
+
+.bot-message {
+  background-color: #f1f1f1;
+  text-align: left;
+}
+
+.input-container {
+  display: flex;
+}
+
+.input-container input {
+  width: 100%;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+}
+
+.input-container button {
+  background-color: #4CAF50; /* Verde escuro */
+  color: white;
+  border: none;
+  padding: 10px;
+  margin-left: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+/* Estilo do botão para abrir o chat */
+#open-chat-btn {
+  position: fixed;
+  bottom: 20px;
+  left: 20px; /* Mover o botão para a esquerda */
+  background-color: #4CAF50; /* Verde escuro */
+  color: white;
+  padding: 15px 20px;
+  border-radius: 50%;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+/* Texto do chat */
+.chat-message, .user-message, .bot-message {
+  color: #006400; /* Verde escuro para o texto das mensagens */
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

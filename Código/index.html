@@ -1,0 +1,659 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CineAlert</title>
+  <link rel="icon" href="icone.png">
+  <link rel="stylesheet" href="css/style.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+
+<body>
+  <!-- Tela Principal -->
+  <div id="main-screen" class="screen">
+    <header class="header">
+      <a href="index.html">
+        <div class="logo">🍿 CineAlert</div>
+      </a>
+
+      <div class="search-container">
+        <span class="material-icons">search</span>
+        <input type="text" placeholder="Pesquisar..." class="search-bar" id="search-bar">
+        <span class="material-icons clear-icon" id="clear-icon">close</span> <!-- Ícone de "X" -->
+      </div>
+
+
+      <footer class="footer">
+        <a href="index.html"><button id="home-btn">🏠Home</button></a>
+        <a href="lista_desejos.html"><button id="favorites-btn">❤️ Favoritos</button></a>
+        <a href="configuracoes.html"><button id="settings-btn">⚙️ Configurações</button></a>
+        <!-- Botão de usuário (exibe o nome e o ícone quando logado) -->
+        <div id="user-menu" class="hidden">
+          <button id="user-name-btn" class="user-btn">
+            <span class="material-icons">account_circle</span> <!-- Ícone do usuário -->
+            <span id="username-display"></span> <!-- Nome do usuário, deixado em branco inicialmente -->
+          </button>
+          <div id="dropdown-menu" class="hidden">
+            <button id="profile-btn" onclick="manageAccount()">Perfil</button>
+            <button id="logout-btn" onclick="logout()">Sair</button>
+          </div>
+        </div>
+
+        <!-- Botão de login se o usuário não estiver logado -->
+        <a href="login.html" id="login-button" class="hidden"><button id="login-btn">👤 Login</button></a>
+        <button id="theme-toggle" aria-label="Alternar Tema">🌞</button>
+      </footer>
+    </header>
+
+    <!-- Botão de usuário (exibe o nome e o ícone quando logado) -->
+    <div id="user-menu" class="hidden">
+      <button id="user-name-btn" class="user-btn">
+        <span class="material-icons">account_circle</span> <!-- Ícone do usuário -->
+        <span id="username-display"></span> <!-- Nome do usuário, deixado em branco inicialmente -->
+      </button>
+      <div id="dropdown-menu" class="hidden">
+        <button onclick="manageAccount()">Perfil</button>
+        <button onclick="logout()">Sair</button>
+      </div>
+    </div>
+
+    <!-- Botão de login se o usuário não estiver logado -->
+    <a href="login.html" id="login-button" class="hidden"><button id="login-btn">👤 Login</button></a>
+
+
+
+    <div class="movie-carousel">
+      <!-- Adicionando novos filmes -->
+      <div class="movie" id="movie-venom">
+        <a href="movie-details.html?movie=venom">
+          <img src="images/Capas/venom3.jpg" alt="Venom_3">
+          <p>Venom 3: A Última Rodada</p>
+        </a>
+        <button onclick="addToWishlist(event, 'Venom 3: A Última Rodada', 'images/Capas/venom3.jpg')">Adicionar à
+          Lista de Desejos</button>
+        <a href="https://www.youtube.com/watch?v=iItE_mKEIqw"><button onclick="showTrailer('venom')">Assistir
+            Trailer</button></a>
+      </div>
+
+      <div class="movie" id="movie-ainda-estou-aqui">
+        <a href="movie-details.html?movie=ainda-estou-aqui">
+          <img src="images/Capas/ainda_estou_aqui.jpg" alt="Ainda Estou Aqui">
+          <p>Ainda Estou Aqui</p>
+        </a>
+        <button onclick="addToWishlist(event, 'Ainda Estou Aqui', 'images/Capas/ainda_estou_aqui.jpg')">Adicionar à
+          Lista de Desejos</button>
+        <a href="https://www.youtube.com/watch?v=_NzqP0jmk3o"><button onclick="showTrailer('ainda-estou-aqui')">Assistir
+            Trailer</button></a>
+      </div>
+
+      <div class="movie" id="movie-gladiador-2">
+        <a href="movie-details.html?movie=gladiador-2">
+          <img src="images/Capas/gladiador_2.jpg" alt="Gladiador_2">
+          <p>Gladiador 2</p>
+        </a>
+        <button onclick="addToWishlist(event, 'Gladiador 2', 'images/Capas/gladiador_2.jpg')">Adicionar à Lista de
+          Desejos</button>
+        <a href="https://www.youtube.com/watch?v=thfURRSQzdw"><button onclick="showTrailer('gladiador-2')">Assistir
+            Trailer</button></a>
+      </div>
+
+      <div class="movie" id="movie-auto-da-compadecida-2">
+        <a href="movie-details.html?movie=auto-da-compadecida-2">
+          <img src="images/Capas/auto_da_compadecida_2.jpg" alt="Auto da Compadecida 2">
+          <p>O Auto Da Compadecida 2</p>
+        </a>
+        <button
+          onclick="addToWishlist(event, 'O Auto Da Compadecida 2', 'images/Capas/auto_da_compadecida_2.jpg')">Adicionar
+          à Lista de Desejos</button>
+        <a href="https://www.youtube.com/watch?v=ke4x5ywVhiw"><button
+            onclick="showTrailer('auto-da-compadecida-2')">Assistir Trailer</button></a>
+      </div>
+
+      <div class="movie" id="movie-mufasa">
+        <a href="movie-details.html?movie=mufasa">
+          <img src="images/Capas/mufasa.jpg" alt="Mufasa: O Rei Leão">
+          <p>Mufasa: O Rei Leão</p>
+        </a>
+        <button onclick="addToWishlist(event, 'Mufasa: O Rei Leão', 'images/Capas/mufasa.jpg')">Adicionar à Lista de
+          Desejos</button>
+        <a href="https://www.youtube.com/watch?v=2Liv-jiCz_o"><button onclick="showTrailer('mufasa')">Assistir
+            Trailer</button></a>
+      </div>
+
+      <div class="movie" id="movie-sonic">
+        <a href="movie-details.html?movie=sonic">
+          <img src="images/Capas/sonic3.jpg" alt="Sonic 3">
+          <p>Sonic 3</p>
+        </a>
+        <button onclick="addToWishlist(event, 'Sonic 3', 'images/Capas/sonic3.jpg')">Adicionar à Lista de
+          Desejos</button>
+        <a href="https://www.youtube.com/watch?v=Ik1M3GP9Xqk"><button onclick="showTrailer('sonic')">Assistir
+            Trailer</button></a>
+      </div>
+
+      <div class="movie" id="movie-kraven">
+        <a href="movie-details.html?movie=kraven">
+          <img src="images/Capas/kraven.jpg" alt="Kraven, o Caçador">
+          <p>Kraven, o Caçador</p>
+        </a>
+        <button onclick="addToWishlist(event, 'Kraven, o Caçador', 'images/Capas/kraven.jpg')">Adicionar à Lista de
+          Desejos</button>
+        <a href="https://www.youtube.com/watch?v=-f43GA_D2YU"><button onclick="showTrailer('kraven')">Assistir
+            Trailer</button></a>
+      </div>
+    </div>
+
+    <!-- Chatbot -->
+    <div class="chat-container" id="chat-container">
+      <div class="chat-header">
+        <span>Chatbot CineAlert</span>
+        <button id="close-chat"
+          style="background: none; border: none; color: white; font-size: 18px; cursor: pointer;">&times;</button>
+      </div>
+      <div class="chat-box" id="chat-box">
+        <!-- Mensagens serão exibidas aqui -->
+      </div>
+      <div class="input-container">
+        <input type="text" id="user-input" placeholder="Digite sua mensagem...">
+        <button id="send-btn">Enviar</button>
+      </div>
+    </div>
+
+    <!-- Botão para abrir o chatbot -->
+    <button id="open-chat-btn" style="position: fixed; bottom: 27px; left: 20px;">💬</button>
+
+
+    <!-- Termos de Uso -->
+    <div class="terms-container" style="position: fixed; bottom: 20px; right: 10px; font-size: 15px;">
+      <p><a href="termos.html" style="color: #0f9e02;">Termos de Uso</a></p>
+    </div>
+
+
+    <!-- Rodapé passando pela tela -->
+    <marquee id="roadape" direction="left" scrollamount="10" style="margin-top: 45px;">
+      &copy; 2024 CineAlert. Todos os direitos reservados.
+    </marquee>
+
+
+    <!-- |||FUNÇÕES||| -->
+
+    <script>
+      const carousel = document.querySelector('.movie-carousel'); // Seleciona o carrossel
+      let isMouseDown = false;  // Flag para verificar se o mouse está pressionado
+      let startX;               // Posição X inicial do mouse
+      let scrollLeft;           // Posição de rolagem inicial do carrossel
+
+      // Evento que dispara quando o usuário clica com o botão do mouse no carrossel
+      carousel.addEventListener('mousedown', (e) => {
+        isMouseDown = true;  // Marca que o mouse está pressionado
+        startX = e.pageX - carousel.offsetLeft;  // Posição inicial do mouse
+        scrollLeft = carousel.scrollLeft; // Posição inicial do carrossel
+        carousel.style.cursor = 'grabbing';  // Muda o cursor para indicar que está arrastando
+      });
+
+      // Evento que é acionado enquanto o mouse está sendo movido
+      carousel.addEventListener('mousemove', (e) => {
+        if (!isMouseDown) return;  // Se o mouse não estiver pressionado, não faz nada
+        e.preventDefault();  // Impede o comportamento padrão do mouse (como seleção de texto)
+        const x = e.pageX - carousel.offsetLeft;  // Posição atual do mouse
+        const walk = (x - startX) * 2;  // Cálculo do movimento (multiplicado por 3 para dar maior sensibilidade)
+        carousel.scrollLeft = scrollLeft - walk;  // Move o carrossel conforme o movimento do mouse
+      });
+
+      // Evento que dispara quando o usuário solta o botão do mouse
+      carousel.addEventListener('mouseup', () => {
+        isMouseDown = false;  // Marca que o mouse não está mais pressionado
+        carousel.style.cursor = 'grab';  // Retorna o cursor para o estado normal
+      });
+
+      // Adiciona o evento de sair da área do carrossel, caso o usuário arraste o mouse para fora
+      carousel.addEventListener('mouseleave', () => {
+        isMouseDown = false;  // Marca que o mouse não está mais pressionado
+        carousel.style.cursor = 'grab';  // Retorna o cursor para o estado normal
+      });
+    </script>
+
+    <script>
+      document.addEventListener('keydown', function (event) {
+        const carousel = document.querySelector('.movie-carousel');
+        const scrollAmount = 400; // Define o valor de quanto o carrossel vai se mover a cada tecla pressionada
+
+        if (event.key === 'ArrowRight') {
+          // Move o carrossel para a direita ao pressionar a seta para a direita
+          carousel.scrollBy({
+            left: scrollAmount,
+            behavior: 'smooth' // Transição suave
+          });
+        } else if (event.key === 'ArrowLeft') {
+          // Move o carrossel para a esquerda ao pressionar a seta para a esquerda
+          carousel.scrollBy({
+            left: -scrollAmount,
+            behavior: 'smooth' // Transição suave
+          });
+        }
+      });
+    </script>
+
+
+    <script>
+      // Obtém o campo de pesquisa
+      const searchInput = document.getElementById('search-bar');
+
+      // Obtém o ícone de "X"
+      const clearIcon = document.getElementById('clear-icon');
+
+      // Inicialmente, esconda o ícone de "X"
+      clearIcon.style.display = 'none';
+
+      // Adiciona um evento de input para detectar as mudanças no campo de pesquisa
+      searchInput.addEventListener('input', function () {
+        const searchTerm = searchInput.value.trim().toLowerCase();
+
+        // Obtém todas as divs de filme no carrossel
+        const movieDivs = document.querySelectorAll('.movie');
+
+        movieDivs.forEach(function (movie) {
+          const imgAlt = movie.querySelector('img').alt.toLowerCase();
+
+          if (imgAlt.includes(searchTerm) || searchTerm === '') {
+            movie.classList.remove('hidden');
+          } else {
+            movie.classList.add('hidden');
+          }
+        });
+
+        // Exibe ou oculta o ícone "X" com base no conteúdo do campo de pesquisa
+        if (searchTerm !== '') {
+          clearIcon.style.display = 'block'; // Exibe o "X" quando há texto
+        } else {
+          clearIcon.style.display = 'none'; // Oculta o "X" quando o campo estiver vazio
+        }
+      });
+
+      // Adiciona evento para limpar o campo de pesquisa ao clicar no ícone "X"
+      clearIcon.addEventListener('click', function () {
+        searchInput.value = ''; // Limpa o campo de pesquisa
+        searchInput.focus(); // Foca no campo de pesquisa
+        clearIcon.style.display = 'none'; // Oculta o ícone de "X" após limpar
+        filterMovies(); // Chama a função para filtrar os filmes (com campo vazio)
+      });
+
+      // Adiciona evento de click para mostrar o "X" quando o campo de pesquisa for clicado
+      searchInput.addEventListener('focus', function () {
+        const searchTerm = searchInput.value.trim().toLowerCase();
+        if (searchTerm !== '') {
+          clearIcon.style.display = 'block'; // Mostra o "X" se o campo já contiver texto
+        }
+      });
+
+      // Função para filtrar os filmes com base no valor do campo de pesquisa
+      function filterMovies() {
+        const searchTerm = searchInput.value.trim().toLowerCase();
+        const movieDivs = document.querySelectorAll('.movie');
+
+        movieDivs.forEach(function (movie) {
+          const imgAlt = movie.querySelector('img').alt.toLowerCase();
+
+          if (imgAlt.includes(searchTerm) || searchTerm === '') {
+            movie.style.display = 'block'; // Exibe o filme
+          } else {
+            movie.style.display = 'none'; // Oculta o filme
+          }
+        });
+      }
+    </script>
+
+    <script>
+      // Obtém o botão de alternância de tema
+      const themeToggleButton = document.getElementById('theme-toggle');
+
+      // Função para atualizar o ícone do botão baseado no tema atual
+      function updateThemeIcon() {
+        // Verifica se o tema escuro está ativo
+        if (document.body.classList.contains('dark-theme')) {
+          themeToggleButton.textContent = '🌙'; // Lua para modo claro
+        } else {
+          themeToggleButton.textContent = '🌞'; // Sol para modo escuro
+        }
+      }
+
+      // Evento de clique para alternar entre os temas
+      themeToggleButton.addEventListener('click', function () {
+        // Alterna as classes de tema no body
+        document.body.classList.toggle('dark-theme');
+        document.body.classList.toggle('light-theme');
+
+        // Atualiza o ícone
+        updateThemeIcon();
+
+        // Salva a preferência do tema no localStorage para persistência entre recarregamentos
+        if (document.body.classList.contains('dark-theme')) {
+          localStorage.setItem('theme', 'dark');
+        } else {
+          localStorage.setItem('theme', 'light');
+        }
+      });
+
+      // Carregar o tema preferido do usuário ao carregar a página
+      window.addEventListener('load', function () {
+        const savedTheme = localStorage.getItem('theme') || 'dark'; // Se não tiver, o padrão é escuro
+        document.body.classList.add(savedTheme + '-theme');
+        updateThemeIcon(); // Atualiza o ícone ao carregar a página
+      });
+
+
+    </script>
+
+
+
+    <script>
+      // Verificar se o usuário está logado
+      window.onload = function () {
+        const username = localStorage.getItem('username');
+        const loginButton = document.getElementById('login-btn');
+        const userMenu = document.getElementById('user-menu');
+        const userNameBtn = document.getElementById('user-name-btn');
+        const dropdownMenu = document.getElementById('dropdown-menu');
+
+        if (username) {
+          loginButton.textContent = username; // Muda o texto do botão para o nome do usuário
+          userMenu.classList.remove('hidden'); // Exibe o menu do usuário
+          userNameBtn.textContent = username; // Exibe o nome do usuário no botão de nome
+        } else {
+          loginButton.textContent = '👤 Login'; // Exibe "Login" quando não há usuário logado
+          userMenu.classList.add('hidden'); // Oculta o menu de usuário
+        }
+
+        // Função para alternar o menu de opções do usuário
+        userNameBtn.addEventListener('click', () => {
+          dropdownMenu.classList.toggle('hidden');
+        });
+      };
+
+      // Função para gerenciar a conta (vai para uma página de gerenciamento de conta)
+      function manageAccount() {
+        window.location.href = 'gerenciar-conta.html'; // Substitua pelo link da página de gerenciamento de conta
+      }
+
+      // Função para sair
+      function logout() {
+        localStorage.removeItem('username'); // Remove o nome de usuário
+        window.location.reload(); // Recarrega a página para limpar o estado de login
+      }
+    </script>
+
+
+    <script>
+      // Verifica se o usuário está logado (se existe o nome salvo no localStorage)
+      function checkLoginStatus() {
+        const username = localStorage.getItem('username');
+
+        if (username) {
+          // Se o usuário estiver logado, mostra o nome dele e o menu
+          document.getElementById('user-name-btn').textContent = `Bem-vindo, ${username}`;
+          document.getElementById('user-menu').classList.remove('hidden');
+          document.getElementById('login-button').classList.add('hidden'); // Oculta o botão de login
+        } else {
+          // Se não estiver logado, exibe o botão de login
+          document.getElementById('login-button').classList.remove('hidden');
+        }
+      }
+
+      // Chama a função para verificar se o usuário está logado
+      checkLoginStatus();
+
+      // Função para logout
+      function logout() {
+        localStorage.removeItem('username'); // Remove o nome do usuário do localStorage
+        window.location.href = 'index.html'; // Redireciona de volta para a página inicial
+      }
+    </script>
+
+
+    <script>
+
+      // Função para salvar a avaliação do filme
+      function saveRating(filmId, rating) {
+        // Remover o armazenamento permanente da avaliação
+        // localStorage.setItem(filmId, rating); // Não estamos mais usando o localStorage para salvar a avaliação.
+      }
+
+      // Função para carregar a avaliação do filme
+      function loadRating(filmId) {
+        // Não vamos mais carregar a avaliação salva do localStorage
+        // Para garantir que as estrelas sejam desmarcadas, não vamos aplicar nada.
+        const stars = document.querySelectorAll(`#${filmId} .star`);
+        stars.forEach((star) => {
+          star.classList.remove('selected'); // Garantir que as estrelas fiquem desmarcadas
+        });
+      }
+
+      // Função para gerenciar o clique nas estrelas
+      function handleStarClick(event) {
+        const ratingContainer = event.currentTarget;
+        const stars = ratingContainer.getElementsByClassName('star');
+        const clickedStarValue = parseInt(event.target.getAttribute('data-value'));
+
+        // Limpar a seleção anterior
+        for (let i = 0; i < stars.length; i++) {
+          stars[i].classList.remove('selected');
+        }
+
+        // Adicionar a classe 'selected' às estrelas até a estrela clicada (da esquerda para a direita)
+        for (let i = 0; i < clickedStarValue; i++) {
+          stars[i].classList.add('selected');
+        }
+
+        // Salvar a avaliação (o id do filme e a avaliação de estrelas)
+        saveRating(ratingContainer.id, clickedStarValue);
+
+        // Exibir o alert com a quantidade de estrelas selecionadas
+        alert(`Você selecionou ${clickedStarValue} estrela(s)!`);
+      }
+
+      // Adicionar eventos de clique nas estrelas para todos os filmes
+      document.querySelectorAll('.rating').forEach(ratingContainer => {
+        ratingContainer.addEventListener('click', handleStarClick);
+      });
+
+      // Carregar avaliações de todos os filmes ao carregar a página
+      document.addEventListener('DOMContentLoaded', () => {
+        // Para garantir que as estrelas sejam desmarcadas ao recarregar
+        document.querySelectorAll('.rating').forEach(ratingContainer => {
+          const filmId = ratingContainer.id;
+          loadRating(filmId);
+        });
+      });
+
+
+
+    </script>
+
+
+    <script>
+      // Verifica se o usuário está logado
+      function checkLoginStatus() {
+        const username = localStorage.getItem('username');
+        if (username) {
+          // Se o usuário estiver logado, exibe o nome e o menu
+          document.getElementById('user-name-btn').textContent = `Olá, ${username}`; // Exibe o nome do usuário
+          document.getElementById('user-menu').classList.remove('hidden');
+          document.getElementById('login-button').classList.add('hidden'); // Oculta o botão de login
+        } else {
+          // Se não estiver logado, exibe o botão de login
+          document.getElementById('login-button').classList.remove('hidden');
+        }
+      }
+
+      checkLoginStatus(); // Chama a função ao carregar a página
+
+      // Função para logout
+      function logout() {
+        localStorage.removeItem('username');
+        window.location.href = 'index.html'; // Redireciona de volta para a página inicial
+      }
+
+      // Função para gerenciar conta
+      function manageAccount() {
+        window.location.href = 'gerenciar_conta.html'; // Redireciona para a página gerenciar_conta.html
+      }
+    </script>
+
+
+<script>
+  // Variáveis e elementos do chatbot
+  const chatContainer = document.getElementById('chat-container');
+  const openChatBtn = document.getElementById('open-chat-btn');
+  const closeChatBtn = document.getElementById('close-chat');
+  const sendBtn = document.getElementById('send-btn');
+  const userInput = document.getElementById('user-input');
+  const chatBox = document.getElementById('chat-box');
+  let movieHistory = [];  // Histórico de filmes
+
+  // Função para abrir e fechar o chatbot
+  openChatBtn.addEventListener('click', function () {
+    chatContainer.style.display = 'block';  // Exibe o chat
+  });
+
+  closeChatBtn.addEventListener('click', function () {
+    chatContainer.style.display = 'none';  // Esconde o chat
+  });
+
+  // Função para enviar a mensagem
+  sendBtn.addEventListener('click', function () {
+    const userMessage = userInput.value.trim();
+    if (userMessage) {
+      displayMessage(userMessage, 'user');  // Exibe a mensagem do usuário
+      userInput.value = '';  // Limpa o campo de entrada
+      botResponse(userMessage);  // Responde automaticamente
+    }
+  });
+
+  // Função para exibir as mensagens no chat
+  function displayMessage(message, sender) {
+    const messageDiv = document.createElement('div');
+    messageDiv.classList.add('chat-message');
+    if (sender === 'user') {
+      messageDiv.classList.add('user-message');
+    } else {
+      messageDiv.classList.add('bot-message');
+    }
+    messageDiv.textContent = message;
+    chatBox.appendChild(messageDiv);
+    chatBox.scrollTop = chatBox.scrollHeight;  // Faz o chat rolar para a última mensagem
+  }
+
+  // Função para resposta do bot
+  function botResponse(userMessage) {
+    let botMessage = '';
+
+    // Respostas baseadas em palavras-chave
+    if (userMessage.toLowerCase().includes('olá')) {
+      botMessage = 'Olá! Como posso te ajudar hoje?';
+    } else if (userMessage.toLowerCase().includes('ajuda')) {
+      botMessage = 'Posso te ajudar a encontrar filmes ou algo mais! O que você procura?';
+    } else if (userMessage.toLowerCase().includes('filmes')) {
+      botMessage = 'Aqui estão alguns filmes que posso te sugerir: Venom: A Última Rodada, Gladiador 2, Sonic 3, Mufasa, Ainda Estou Aqui, O Auto Da Compadecida 2, Kraven, o Caçador.';
+    } else if (userMessage.toLowerCase().includes('recomendação')) {
+      botMessage = 'Aqui está a recomendação do dia: "Venom: A Última Rodada" - uma excelente escolha se você gosta de ação e aventura!';
+    } else if (userMessage.toLowerCase().includes('gênero')) {
+      botMessage = 'Escolha um gênero para ver filmes recomendados: \n1. Ação\n2. Comédia\n3. Aventura';
+    } else if (userMessage.toLowerCase().includes('ação')) {
+      botMessage = 'Aqui estão alguns filmes de Ação: \n1. "Venom: A Última Rodada"\n2. "Gladiador 2"\n3. "Kraven, o Caçador"';
+    } else if (userMessage.toLowerCase().includes('comédia')) {
+      botMessage = 'Aqui estão alguns filmes de Comédia: \n1. "O Auto Da Compadecida 2"';
+    } else if (userMessage.toLowerCase().includes('aventura')) {
+      botMessage = 'Aqui estão alguns filmes de Aventura: \n1. "Sonic 3"\n2. "Mufasa: O Rei Leão"';
+    } else if (userMessage.toLowerCase().includes('venom')) {
+      botMessage = 'Você quer saber mais sobre o filme "Venom: A Última Rodada"? Clique no link abaixo para mais detalhes:';
+      const link = document.createElement('a');
+      link.href = "movie-details.html?movie=venom";
+      link.innerText = "Venom: A Última Rodada";
+      link.target = "_blank";
+      chatBox.appendChild(document.createElement('br'));
+      chatBox.appendChild(link);
+      return;
+    } else if (userMessage.toLowerCase().includes('gladiador')) {
+      botMessage = 'Você quer saber mais sobre o filme "Gladiador 2"? Clique no link abaixo para mais detalhes:';
+      const link = document.createElement('a');
+      link.href = "movie-details.html?movie=gladiador-2";
+      link.innerText = "Gladiador 2";
+      link.target = "_blank";
+      chatBox.appendChild(document.createElement('br'));
+      chatBox.appendChild(link);
+      return;
+    } else if (userMessage.toLowerCase().includes('sonic')) {
+      botMessage = 'Você quer saber mais sobre o filme "Sonic 3"? Clique no link abaixo para mais detalhes:';
+      const link = document.createElement('a');
+      link.href = "movie-details.html?movie=sonic";
+      link.innerText = "Sonic 3";
+      link.target = "_blank";
+      chatBox.appendChild(document.createElement('br'));
+      chatBox.appendChild(link);
+      return;
+    } else if (userMessage.toLowerCase().includes('mufasa')) {
+      botMessage = 'Você quer saber mais sobre o filme "Mufasa: O Rei Leão"? Clique no link abaixo para mais detalhes:';
+      const link = document.createElement('a');
+      link.href = "movie-details.html?movie=mufasa";
+      link.innerText = "Mufasa: O Rei Leão";
+      link.target = "_blank";
+      chatBox.appendChild(document.createElement('br'));
+      chatBox.appendChild(link);
+      return;
+    } else if (userMessage.toLowerCase().includes('kraven')) {
+      botMessage = 'Você quer saber mais sobre o filme "Kraven, o Caçador"? Clique no link abaixo para mais detalhes:';
+      const link = document.createElement('a');
+      link.href = "movie-details.html?movie=kraven";
+      link.innerText = "Kraven, o Caçador";
+      link.target = "_blank";
+      chatBox.appendChild(document.createElement('br'));
+      chatBox.appendChild(link);
+      return;
+    } else if (userMessage.toLowerCase().includes('ainda estou aqui')) {
+      botMessage = 'Você quer saber mais sobre o filme "Ainda Estou Aqui"? Clique no link abaixo para mais detalhes:';
+      const link = document.createElement('a');
+      link.href = "movie-details.html?movie=ainda-estou-aqui";
+      link.innerText = "Ainda Estou Aqui";
+      link.target = "_blank";
+      chatBox.appendChild(document.createElement('br'));
+      chatBox.appendChild(link);
+      return;
+    } else if (userMessage.toLowerCase().includes('auto da compadecida 2')) {
+      botMessage = 'Você quer saber mais sobre o filme "O Auto Da Compadecida 2"? Clique no link abaixo para mais detalhes:';
+      const link = document.createElement('a');
+      link.href = "movie-details.html?movie=auto-da-compadecida-2";
+      link.innerText = "O Auto Da Compadecida 2";
+      link.target = "_blank";
+      chatBox.appendChild(document.createElement('br'));
+      chatBox.appendChild(link);
+      return;
+    } else {
+      botMessage = 'Desculpe, não entendi. Tente algo como "ajuda", "recomendação","gênero" ou "filmes".';
+    }
+
+    // Atualiza o histórico de filmes se o usuário perguntou sobre um filme
+    if (userMessage.toLowerCase().includes('venom') || userMessage.toLowerCase().includes('gladiador') ||
+        userMessage.toLowerCase().includes('sonic') || userMessage.toLowerCase().includes('mufasa') ||
+        userMessage.toLowerCase().includes('kraven') || userMessage.toLowerCase().includes('ainda estou aqui') ||
+        userMessage.toLowerCase().includes('auto da compadecida 2')) {
+      movieHistory.push(userMessage); // Adiciona ao histórico
+    }
+
+    displayMessage(botMessage, 'bot');
+  }
+
+</script>
+
+
+    
+    
+
+    <script src="js/script.js"></script>
+    <script src="js/movie-details.js"></script>
+    <script src="js/theme.js" defer></script>
+    <script src="js/configuracoes.js"></script>
+</body>
+
+</html>

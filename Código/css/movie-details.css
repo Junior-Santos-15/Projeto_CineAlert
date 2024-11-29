@@ -1,0 +1,506 @@
+/* Estilos gerais */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #121212;
+  color: white;
+}
+
+/* Estilos do Header */
+.header {
+  height: 90px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: #1a1a1a;
+}
+
+/* Estilos dos Botões do Header (Home, Desejos, Configurações) */
+.header button {
+  background-color: transparent; /* Sem fundo */
+  color: white;
+  border: 2px solid transparent; /* Borda transparente */
+  font-size: 20px;
+  cursor: pointer;
+  transition: color 0.3s, transform 0.3s;
+  padding: 5px 15px; /* Adicionando espaçamento para os botões */
+}
+
+.header button:hover {
+  color: #ff5733; /* Texto laranja no hover */
+  transform: translateY(-5px); /* O texto se eleva ao passar o mouse */
+}
+
+
+.logo {
+  font-size: 50px;
+  color: white;
+  margin-left: 20px;
+  padding-left: 200px;
+  font-family: 'Arial', sans-serif;  /* Fonte limpa e moderna */
+  font-weight: bold;  /* Torna o texto mais forte */
+  letter-spacing: 2px;  /* Espaçamento entre as letras */
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);  /* Sombra para dar profundidade */
+  transition: color 0.3s ease, transform 0.3s ease;  /* Transições suaves */
+}
+
+
+.logo:hover {
+  color: #fdd835;  /* Cor amarela no hover */
+  transform: scale(1.1);  /* Efeito de aumento ao passar o mouse */
+  text-shadow: 2px 2px 12px rgba(0, 0, 0, 0.5);  /* Sombra mais intensa no hover */
+}
+
+.search-container {
+  display: flex;
+  align-items: center;
+  background-color: #333;
+  border-radius: 35px;
+  padding: 10px;
+  width: 500px;
+  height: 40px;
+}
+
+.search-container .material-icons {
+  color: white;
+  font-size: 24px;
+  margin-left: 10px;
+}
+
+.search-bar {
+  flex: 1;
+  margin-left: 10px;
+  padding: 5px;
+  border: none;
+  border-radius: 5px;
+  background-color: transparent;
+  color: white;
+  font-size: 20px;
+}
+
+/* Estilos da página de detalhes do filme */
+.details {
+  padding: 30px 20px;
+  max-width: 1200px;
+  margin: 20px auto;
+  background-color: #1a1a1a;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.7);
+}
+
+#movie-img {
+  width: 400px; /* Largura fixa para a imagem */
+  height: 550px; /* Altura fixa para a imagem */
+  object-fit: cover; /* A imagem preencherá a área sem distorcer */
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+  margin: 0 auto; /* Centraliza a imagem */
+  display: block; /* Garante que a imagem seja exibida como um bloco */
+}
+
+/* Estilos das informações do filme */
+#movie-details {
+  padding-top: 20px; /* Espaço entre a imagem e as informações */
+  text-align: left; /* Alinha as informações à esquerda */
+}
+
+#movie-name {
+  font-size: 40px;
+  font-weight: bold;
+  margin-top: 20px;
+}
+
+#movie-synopsis {
+  font-size: 18px;
+  margin: 20px 0;
+  line-height: 1.6;
+}
+
+#movie-genre,
+#movie-release-date,
+#movie-theaters {
+  font-size: 16px;
+  margin: 10px 0;
+  line-height: 1.5;
+}
+
+#movie-genre span,
+#movie-release-date span,
+#movie-theaters span {
+  font-weight: bold;
+}
+
+#movie-genre {
+  margin-top: 10px;
+}
+
+#movie-theaters {
+  margin-top: 20px;
+}
+
+#movie-theaters span {
+  display: block;
+  margin-top: 5px;
+  font-size: 14px;
+  font-weight: normal;
+}
+
+/* Botões de ação com efeito hover */
+button {
+  background-color: transparent;  /* Sem fundo */
+  color: white;
+  border: 2px solid transparent; /* Borda transparente */
+  padding: 12px 20px;
+  font-size: 18px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 30px;
+  transition: background-color 0.3s, transform 0.2s, box-shadow 0.3s ease; /* Consistente transição de 0.3s para cor e elevação */
+}
+
+button:hover {
+  color: #ff5733; /* Cor do texto ao passar o mouse */
+  transform: translateY(-5px); /* O texto se eleva ao passar o mouse */
+}
+
+button:focus {
+  outline: none;
+}
+
+/* Rodapé */
+.footer {
+  display: flex;
+  justify-content: space-around;
+  padding: 20px;
+  background-color: #1a1a1a;
+}
+
+.footer button {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 20px;
+}
+
+/* Estilos da lista de desejos */
+#wishlist-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  padding: 20px;
+}
+
+#wishlist-container .movie {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 80%;
+  max-width: 500px;
+  background-color: #1a1a1a;
+  border-radius: 10px;
+  padding: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.7);
+}
+
+#wishlist-container img {
+  width: 120px;
+  height: 170px;
+  border-radius: 10px;
+  margin-right: 20px;
+}
+
+#clear-wishlist {
+  background-color: transparent;
+  color: white;
+  border: 2px solid #ff5733; /* Borda do botão */
+  padding: 12px 20px;
+  font-size: 18px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 30px;
+  transition: color 0.3s, transform 0.3s; /* Transição suave para cor e elevação */
+}
+
+#clear-wishlist:hover {
+  color: #ff5733; /* Cor do texto ao passar o mouse */
+  transform: translateY(-5px); /* O texto se eleva ao passar o mouse */
+}
+
+#clear-wishlist:focus {
+  outline: none;
+}
+
+/* Ocultar elementos */
+.hidden {
+  display: none;
+}
+
+.screen {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+  
+
+
+
+
+
+
+  /* Estilos para o Modo Claro */
+.light-theme {
+  background-color: #ffffff; /* Fundo claro */
+  color: #121212; /* Texto escuro */
+}
+
+/* Estilos para o Modo Escuro */
+.dark-theme {
+  background-color: #121212; /* Fundo escuro */
+  color: #ffffff; /* Texto claro */
+}
+
+/* O estilo de botões deve ser ajustado para todos os temas */
+button {
+  background-color: #ff5733;
+  color: white;
+  border: none;
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #c44533;
+}
+
+/* Alteração do tema nos botões de navegação (header) */
+header button {
+  background-color: transparent;
+  color: inherit; /* Cor do texto segue o tema */
+  font-size: 18px;
+  transition: color 0.3s ease;
+}
+
+header button:hover {
+  color: #ff5733; /* Cor de destaque ao passar o mouse */
+}
+
+/* Estilo do carrossel de filmes */
+.movie-carousel {
+  display: flex;
+  gap: 20px;
+  padding: 20px;
+  overflow: hidden;
+  transition: transform 0.5s ease;
+}
+
+/* Estilo das imagens dos filmes */
+.movie img {
+  width: 400px;
+  height: 550px;
+  border-radius: 10px;
+  transition: transform 0.3s ease;
+}
+
+/* Alteração de cor das imagens e do texto do título ao passar o mouse */
+.movie:hover {
+  transform: scale(1.05);
+}
+
+.movie p {
+  font-size: 16px;
+  font-weight: bold;
+  text-align: center;
+}
+
+/* Estilo de divs (exemplo: movie-details) */
+.details {
+  padding: 20px;
+  text-align: center;
+}
+
+/* Definir cores para as divs e elementos em diferentes temas */
+.light-theme .details {
+  background-color: #f9f9f9; /* fundo claro para detalhes */
+  color: #121212; /* texto escuro */
+}
+
+.dark-theme .details {
+  background-color: #1e1e1e; /* fundo escuro para detalhes */
+  color: #ffffff; /* texto claro */
+}
+
+/* Menu de navegação */
+nav {
+  background-color: #1a1a1a;
+  padding: 10px;
+}
+
+nav a {
+  color: white;
+  font-size: 18px;
+  padding: 10px;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+nav a:hover {
+  color: #ff5733; /* Cor de destaque */
+}
+
+/* Personalizar as cores do rodapé */
+.footer {
+  display: flex;
+  justify-content: space-around;
+  padding: 10px;
+  background-color: #1a1a1a;
+}
+
+.footer button {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 20px;
+}
+
+.footer button:hover {
+  color: #ff5733; /* Destaque para botões */
+}
+
+/* Configurações de lista de desejos e filmes */
+#wishlist .movie {
+  text-align: left;
+  width: 120px;
+  margin-right: 10px;
+}
+
+#clear-wishlist {
+  margin-top: 70px;
+}
+
+/* Input de pesquisa */
+.search-container {
+  display: flex;
+  align-items: center;
+  background-color: #333;
+  border-radius: 35px;
+  padding: 10px;
+  width: 800px;
+  height: 30px;
+}
+
+.search-container .material-icons {
+  color: white;
+  font-size: 24px;
+  margin-left: 10px;
+}
+
+.search-bar {
+  flex: 1;
+  margin-left: 10px;
+  padding: 5px;
+  border: none;
+  border-radius: 5px;
+  background-color: transparent;
+  color: white;
+  font-size: 20px;
+}
+
+.visita{
+  color: rgb(139, 228, 37);
+}
+
+.comment{
+  width: 80%;
+}
+
+.comment p{
+  color: #121212;
+}
+
+
+.comments-section {
+  margin-top: 40px;
+  padding-top: 20px;
+  border-top: 2px solid #ddd;
+}
+
+#comment-input {
+  width: 80%;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  margin-bottom: 10px;
+}
+
+#submit-comment {
+  padding: 10px 15px;
+  background-color: #4CAF50; /* Verde escuro */
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+#submit-comment:hover {
+  background-color: #2c6d2f;
+}
+
+#comments-list {
+  margin-bottom: 20px;
+}
+
+.comment {
+  padding: 10px;
+  margin-bottom: 15px;
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+
+/* Estilo da lista de cinemas */
+#movie-cinemas {
+  list-style-type: none;
+  padding: 0;
+  margin-top: 20px;
+}
+
+#movie-cinemas li {
+  background-color: #084ac5;
+  border: 1px solid #98c57a;
+  border-radius: 8px;
+  margin-bottom: 15px;
+  padding: 10px;
+  box-shadow: 0 4px 6px rgba(122, 60, 60, 0.1);
+}
+
+#movie-cinemas li h4 {
+  font-size: 1.2em;
+  margin: 0;
+}
+
+#movie-cinemas li p {
+  margin: 5px 0;
+  color: #555;
+}
+
+#movie-cinemas li .showtimes {
+  margin-top: 10px;
+  font-size: 0.9em;
+}
+
+#movie-cinemas li .showtimes span {
+  background-color: #007bff;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 5px;
+  margin-right: 10px;
+}
+
+
+

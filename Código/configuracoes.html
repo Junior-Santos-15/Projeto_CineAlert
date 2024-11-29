@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Configurações - CineAlert</title>
+  <link rel="icon" href="icone.png">
+  <link rel="stylesheet" href="css/configuracoes.css">
+</head>
+
+<body>
+
+  <header class="header">
+    <a href="index.html"><button id="back_config">⬅ Voltar</button></a>
+    <h1 id="logo" class="logo_config">Configurações</h1>
+    <footer class="footer">
+      <a href="index.html"><button id="home-btn">🏠Home</button></a>
+      <a href="lista_desejos.html"><button id="favorites-btn">❤️ Favoritos</button></a>
+    </footer>
+  </header>
+
+  <div class="settings">
+    <h2 id="Config_system">Configurações do Sistema</h2>
+
+    <!-- Opção de Tema -->
+    <div class="theme-toggle">
+      <h3 id="escolha_config">Escolha o Tema</h3>
+      <label class="switch">
+        <input type="checkbox" id="theme-toggle" />
+        <span class="slider"></span>
+      </label>
+      <p id="theme-status">Modo Escuro</p>
+    </div>
+
+     <!-- Seletor de Idioma -->
+     <div class="language-selector">
+      <label for="language">Idioma:</label>
+      <select id="language" onchange="changeLanguage()">
+        <option value="pt-br">Português</option>
+        <option value="en">English</option>
+        <!-- Você pode adicionar outros idiomas conforme necessário -->
+      </select>
+
+    <div class="reset-settings">
+      <button id="reset-settings-btn">Resetar Configurações</button>
+    </div>
+
+  </div>
+
+  <!-- |||FUNÇÕES||| -->
+
+  <script>
+    // Função para trocar o idioma
+    function changeLanguage() {
+      const language = document.getElementById("language").value;
+      
+      // Armazenar o idioma selecionado no localStorage para persistência
+      localStorage.setItem("language", language);
+      
+      // Atualizar os textos conforme o idioma selecionado
+      loadLanguage(language);
+    }
+  
+    // Carregar o idioma ao abrir a página
+    function loadLanguage(language) {
+      // Se o idioma não estiver especificado, verificar no localStorage
+      if (!language) {
+        language = localStorage.getItem("language") || "pt-br"; // Default: pt-br
+      }
+  
+      // Exemplo de textos em diferentes idiomas
+      const texts = {
+        "pt-br": {
+          "settings-title": "Configurações do Sistema",
+          "theme-title": "Escolha o Tema",
+          "theme-status": "Modo Escuro",
+          "reset-settings-btn": "Resetar Configurações",
+          "home-btn": "🏠Home",
+          "favorites-btn": "❤️ Favoritos",
+          "back_config": "⬅ Voltar",
+          "logo": "Configurações",
+          "Config_system": "Configurações do Sistema",
+          "escolha_config": "Escolha o Tema",
+          "settings-btn": "⚙️ Configurações",
+          "user-name-btn": "Usuário",
+          "profile-btn": "Perfil",
+          "logout-btn": "Sair",
+          "login-btn": "👤 Login",
+        },
+        "en": {
+          "settings-title": "System Settings",
+          "theme-title": "Choose Theme",
+          "theme-status": "Dark Mode",
+          "reset-settings-btn": "Reset Settings",
+          "home-btn": "🏠Home",
+          "favorites-btn": "❤️ Favorites",
+          "back_config": "⬅ Back",
+          "logo": "Settings",
+          "Config_system": "System Settings",
+          "escolha_config": "Choose Theme",
+          "settings-btn": "⚙️ Settings",
+          "user-name-btn": "User",
+          "profile-btn": "Profile",
+          "logout-btn": "Log Out",
+          "login-btn": "👤 Login",
+        },
+      };
+  
+      // Atualizar os textos com base no idioma selecionado
+      const langTexts = texts[language];
+      if (langTexts) {
+        for (let key in langTexts) {
+          const element = document.getElementById(key);
+          if (element) {
+            element.innerText = langTexts[key];
+          }
+        }
+      }
+  
+      // Atualizar o valor do seletor de idioma para refletir o idioma atual
+      const languageSelect = document.getElementById("language");
+      if (languageSelect) {
+        languageSelect.value = language; // Altera o valor do <select>
+      }
+    }
+  
+    // Carregar o idioma atual ao carregar a página
+    window.onload = function() {
+      const storedLanguage = localStorage.getItem("language");
+      loadLanguage(storedLanguage); // Carrega o idioma armazenado
+    };
+  </script>
+  
+
+  
+
+
+  <script src="index.html"></script>
+  <script src="js/configuracoes.js"></script>
+  <script src="js/theme.js" defer></script>
+</body>
+
+</html>

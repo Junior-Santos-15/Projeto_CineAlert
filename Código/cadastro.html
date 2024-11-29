@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title id="navega_cad">Cadastro</title>
+    <link rel="icon" href="icone.png">
+    <link rel="stylesheet" href="css/cadastro.css">
+</head>
+<body>
+    <header class="header">
+        <a href="index.html"><button id="voltar_cad">⬅ Voltar</button></a>
+        <h1 class="logo_cadastro">Cadastro</h1>
+        <footer class="footer">
+            <a href="login.html"><button id="login_botao">Já tem uma conta? Login aqui</button></a>
+        </footer>
+    </header>
+
+    <div class="cadastro-container">
+        <h2 id="titulo_cadastro">Cadastre-se</h2>
+        <form id="register-form">
+            <input type="text" id="username" class="input-field" placeholder="Nome de usuário" required>
+            <input type="email" id="email" class="input-field" placeholder="E-mail" required>
+            <input type="password" id="password" class="input-field" placeholder="Senha" required>
+            <input type="password" id="confirm-password" class="input-field" placeholder="Confirmar Senha" required>
+
+            <!-- Novo campo para Telefone -->
+            <input type="tel" id="phone" class="input-field" placeholder="Telefone (ex: (XX) XXXXX-XXXX)" required>
+
+            <!-- Novo campo para Sexo -->
+            <div class="sex-options">
+                <label><input type="radio" id="male" name="sex" value="Masculino" required> Masculino</label>
+                <label><input type="radio" id="female" name="sex" value="Feminino" required> Feminino</label>
+            </div>
+
+            <!-- Novo campo para Seleção de Avatar -->
+            <div id="avatarOption" class="avatar-selection">
+                <label>Escolha um Avatar:</label><br>
+                <label>
+                    <input type="radio" name="avatar" value="masculino" id="avatar-male">
+                    <img src="images/Avatar/avatar_masculino.png" alt="Avatar Masculino" width="50" height="50">
+                    Masculino
+                </label>
+                <label>
+                    <input type="radio" name="avatar" value="feminino" id="avatar-female">
+                    <img src="images/Avatar/avatar_feminino.png" alt="Avatar Feminino" width="50" height="50">
+                    Feminino
+                </label>
+            </div>
+
+            <button id="cadastro_bot" type="submit" class="submit-btn">Cadastrar</button>
+        </form>
+    </div>
+
+    <script>
+        // Função para registrar o novo usuário
+        function registerUser(event) {
+            event.preventDefault(); // Impede o envio padrão do formulário
+
+            // Coleta os dados inseridos no formulário
+            const username = document.getElementById('username').value;
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            const confirmPassword = document.getElementById('confirm-password').value;
+            const phone = document.getElementById('phone').value;
+            const sex = document.querySelector('input[name="sex"]:checked').value;
+            const avatar = document.querySelector('input[name="avatar"]:checked') ? document.querySelector('input[name="avatar"]:checked').value : null;
+
+            // Verifica se a senha e a confirmação de senha coincidem
+            if (password !== confirmPassword) {
+                alert("As senhas não coincidem.");
+                return;
+            }
+
+            // Verifica se os dados já estão no armazenamento (localStorage)
+            let users = JSON.parse(localStorage.getItem('users')) || [];
+
+            // Verifica se o nome de usuário ou o e-mail já estão cadastrados
+            const userExists = users.some(user => user.username === username || user.email === email);
+
+            if (userExists) {
+                alert("Nome de usuário ou e-mail já está cadastrado.");
+                return;
+            }
+
+            // Adiciona o novo usuário ao array de usuários
+            users.push({ username, email, password, phone, sex, avatar });
+
+            // Atualiza o localStorage com a lista de usuários atualizada
+            localStorage.setItem('users', JSON.stringify(users));
+
+            // Exibe um alerta informando o sucesso no cadastro
+            alert("Conta cadastrada com sucesso!");
+
+            // Redireciona para a tela de login após o cadastro
+            window.location.href = 'login.html';
+        }
+
+        // Adiciona o evento ao formulário de cadastro
+        document.getElementById('register-form').addEventListener('submit', registerUser);
+    </script>
+
+    <script src="js/cadastro.js" defer></script>
+    <script src="js/theme.js" defer></script>
+
+</body>
+</html>

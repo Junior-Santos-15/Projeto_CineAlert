@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login</title>
+  <link rel="icon" href="icone.png">
+  <link rel="stylesheet" href="css/login.css">
+</head>
+
+<body>
+
+  <header class="header">
+    <a href="index.html"><button id="back-login">⬅ Voltar</button></a>
+    <h1 class="logo">Login</h1>
+    <footer class="footer">
+      <a href="index.html"><button id="home-btn">🏠Home</button></a>
+    </footer>
+  </header>
+
+  <div class="login-container">
+    <h2>Login</h2>
+    <form id="login-form">
+      <input type="text" id="username" class="input-field" placeholder="Digite seu nome" required />
+      <input type="password" id="password" class="input-field" placeholder="Digite sua senha" required />
+      <button type="submit" class="entrada">Entrar</button>
+      <p class="error-message" id="error-message" style="display: none; color: red;">Usuário ou senha inválidos.</p>
+      <!-- Mensagem de erro inicialmente oculta -->
+    </form>
+    <div class="register-link">
+      <p id="mensagem-login">Ainda não tem uma conta? <a href="cadastro.html">Cadastre-se aqui</a></p>
+    </div>
+  </div>
+
+  <!-- |||FUNÇÕES||| -->
+
+  <script>
+    // Função chamada ao submeter o login
+    function handleLogin(event) {
+      event.preventDefault(); // Evita que o formulário seja enviado normalmente
+
+      // Obtemos os dados do formulário
+      const username = document.getElementById('username').value;
+      const password = document.getElementById('password').value;
+
+      // Simulação de um usuário e senha válidos
+      const validUsername = "usuario";
+      const validPassword = "senha123";
+
+      // Verifica se o usuário e a senha estão corretos
+      if (username === validUsername && password === validPassword) {
+        // Salvamos o nome de usuário no localStorage
+        localStorage.setItem('username', username);
+
+        // Redireciona para a página principal
+        window.location.href = 'index.html';
+      } else {
+        // Exibe a mensagem de erro
+        const errorMessage = document.getElementById('error-message');
+        errorMessage.style.display = 'block';  // Exibe a mensagem de erro
+      }
+    }
+
+    // Adicionamos o evento ao formulário
+    document.getElementById('login-form').addEventListener('submit', handleLogin);
+  </script>
+
+  <script src="js/login.js" defer></script>
+  <script src="js/theme.js" defer></script>
+</body>
+
+</html>

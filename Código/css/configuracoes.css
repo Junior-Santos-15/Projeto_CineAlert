@@ -1,0 +1,260 @@
+/* Estilos globais que continuam valendo para o restante da página */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #121212;
+    color: white;
+}
+
+/* Header comum nas páginas */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    background-color: #1a1a1a;
+}
+
+.logo_config {
+  font-size: 50px;
+  align-items: center;
+  justify-content: center;
+  margin-left: 280px;
+}
+
+/* Estilos para a seção de configurações */
+.settings {
+    padding: 30px;
+    background-color: #1a1a1a;
+    border-radius: 10px;
+    width: 100%;
+    max-width: 700px;
+    margin: 50px auto;
+    text-align: left;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Título da seção de configurações */
+.settings h2 {
+    margin-bottom: 20px;
+    font-size: 24px;
+    text-align: center;
+    color: #ff5733; /* Cor de destaque */
+}
+
+/* Estilo para as opções de configuração */
+.setting-option {
+    margin: 20px 0;
+}
+
+/* Estilo do label (texto das opções de configuração) */
+.setting-option label {
+    display: block;
+    font-size: 16px;
+    font-weight: 20px;
+    margin-bottom: 5px;
+    color: #ffffff;
+}
+
+/* Estilo do campo de seleção (dropdown) */
+.setting-option select {
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    border: 1px solid #333;
+    border-radius: 5px;
+    background-color: #333;
+    color: white;
+}
+
+/* Estilo das switches */
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+    margin: 0 10px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: 0.4s;
+    border-radius: 34px;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    border-radius: 50%;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    transition: 0.4s;
+}
+
+input:checked + .slider {
+    background-color: #ff5733;
+}
+
+input:checked + .slider:before {
+    transform: translateX(26px);
+}
+
+#theme-status {
+    margin-top: 10px;
+    font-size: 18px;
+}
+
+/* Estilo para os botões */
+button {
+    background-color: #ff5733;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+/* Efeito hover para o botão */
+button:hover {
+    background-color: #c44533;
+    transform: translateY(-5px); /* O botão move-se suavemente para cima */
+}
+
+/* Reset de configurações */
+.reset-settings {
+    margin-top: 20px;
+    text-align: center;
+}
+
+/* Adicionando estilo no rodapé */
+.footer {
+    display: flex;
+    justify-content: space-around;
+    padding: 10px;
+    background-color: #1a1a1a;
+}
+
+.footer button {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 20px;
+}
+
+.footer button:hover {
+    color: #ff5733; /* Destaque para botões no footer */
+}
+
+/* Ajustes na navegação e outros botões */
+nav a {
+    color: white;
+    padding: 10px;
+    font-size: 18px;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+nav a:hover {
+    color: #ff5733; /* Cor de destaque */
+}
+
+/* Ajustes no layout para compactar ou expandir */
+body.compact-view .settings {
+    width: 80%;
+}
+
+body.expanded-view .settings {
+    width: 100%;
+}
+
+/* Definindo temas claros e escuros */
+body {
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+body.light-theme {
+    background-color: #ffffff;
+    color: #000000; /* Texto preto no modo claro */
+}
+
+body.dark-theme {
+    background-color: #121212;
+    color: #ffffff; /* Texto branco no modo escuro */
+}
+
+/* Estilização da div settings */
+.settings {
+    background-color: inherit; /* Herda o fundo do body */
+    color: inherit; /* Herda a cor do texto do body */
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 700px;
+    height: auto;
+    margin: 20px auto;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.5);
+    text-align: left;
+}
+
+.settings h2 {
+    font-size: 32px;
+    margin-bottom: 20px;
+    color: #ff5733;
+}
+
+.theme-toggle {
+    margin-bottom: 20px;
+}
+
+.theme-toggle h3 {
+    font-size: 22px;
+    margin-bottom: 10px;
+}
+
+/* Ajuste para maior clareza na seleção de modo de exibição */
+.view-mode {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.view-mode label {
+    font-size: 16px;
+    color: #ffffff;
+}
+
+.reset-settings button {
+    background-color: #ff5733;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    font-size: 16px;
+    border-radius: 15px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.reset-settings button:hover {
+    background-color: #c44533;
+}
+
+
+

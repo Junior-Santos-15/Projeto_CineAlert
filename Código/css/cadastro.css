@@ -1,0 +1,173 @@
+/* Estilos globais que continuam valendo para o restante da página */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #121212;
+    color: white;
+}
+
+/* Header comum nas páginas */
+.header {
+    height: 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    background-color: #1a1a1a;
+}
+
+.logo_cadastro {
+    font-size: 50px;
+    align-items: center;
+    justify-content: center;
+    margin-left: 240px;
+}
+
+#theme-status {
+    margin-top: 10px;
+    font-size: 18px;
+}
+
+/* Estilo para os botões */
+button {
+    background-color: #ff5733;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+/* Efeito hover para o botão */
+button:hover {
+    background-color: #c44533;
+    transform: translateY(-5px); /* O botão move-se suavemente para cima */
+}
+
+/* Estilização da div cadastro-container */
+.cadastro-container {
+    background-color: inherit;
+    color: inherit;
+    padding: 30px;
+    border-radius: 10px;
+    max-width: 700px;
+    height: auto;
+    margin: 20px auto;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.5);
+    text-align: center;
+    border: 2px solid #ff5733; /* Borda com a cor de destaque */
+}
+
+.cadastro-container h2 {
+    font-size: 32px;
+    margin-bottom: 30px;
+    color: #ff5733;
+}
+
+/* Estilo para os campos de input */
+.input-field {
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    margin: 10px 0;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    background-color: #1a1a1a;
+    color: white;
+    box-sizing: border-box; /* Garante que o padding seja incluído na largura total */
+    transition: border-color 0.3s ease;
+}
+
+/* Foco nos campos de input */
+.input-field:focus {
+    border-color: #ff5733;
+    outline: none;
+    background-color: #333; /* Fundo mais escuro quando o campo está em foco */
+}
+
+/* Estilo para o botão de submit */
+.submit-btn {
+    background-color: #ff5733;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    top: px;
+    cursor: pointer;
+    width: 80%;
+    margin-top: 20px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+/* Efeito hover para o botão de cadastro */
+.submit-btn:hover {
+    background-color: #c44533;
+    transform: translateY(-5px);
+}
+
+/* Estilização do link para login */
+.login-link {
+    margin-top: 20px;
+}
+
+.login-link a {
+    color: #ff5733;
+    text-decoration: none;
+}
+
+.login-link a:hover {
+    color: #008000; /* Cor verde escura ao passar o mouse */
+}
+
+/* Footer do layout */
+.footer {
+    display: flex;
+    justify-content: space-around;
+    padding: 10px;
+    background-color: #1a1a1a;
+}
+
+.footer button {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 20px;
+}
+
+.footer button:hover {
+    color: #ff5733; /* Destaque para botões no footer */
+}
+
+/* Ajustes para modo claro e escuro */
+body {
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+body.light-theme {
+    background-color: #ffffff;
+    color: #000000;
+}
+
+body.dark-theme {
+    background-color: #121212;
+    color: #ffffff;
+}
+
+/* Estilo para as opções de sexo */
+.sex-options {
+    text-align: left;
+    margin-top: 10px;
+}
+
+.sex-options label {
+    display: block;
+    font-size: 16px;
+    margin-top: 5px;
+}
+
+
+

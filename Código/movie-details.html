@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title id="titulo-detalhe">Detalhes do Filme - CineAlert</title>
+    <link rel="icon" href="icone.png">
+    <link rel="stylesheet" href="css/movie-details.css">
+    <!-- Estilos do Leaflet -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+    <style>
+        #map {
+            height: 300px;
+            /* Define a altura do mapa */
+            margin: 20px 0;
+            /* Adiciona espaço ao redor do mapa */
+        }
+    </style>
+</head>
+
+<body>
+    <header class="header">
+        <a href="index.html"><button id="list-favo">⬅ Adicionar aos Favoritos</button></a>
+        <a href="index.html">
+            <h1 class="logo">🍿 CineAlert</h1>
+        </a>
+        <footer class="footer">
+        <a href="index.html"><button id="home-btn">🏠Home</button></a>
+        <a href="lista_desejos.html"><button id="favorites-btn">❤️ Favoritos</button></a>
+        <a href="configuracoes.html"><button id="settings-btn">⚙️ Configurações</button></a>
+        </footer>
+    </header>
+
+    <div class="details">
+        <img id="movie-img" src="" alt="Imagem do Filme">
+        <h2 id="movie-name">Nome do Filme</h2>
+        <!-- Sistema de Avaliação por Estrelas -->
+        <div id="star-rating">
+            <span class="star" data-value="1">&#9733;</span>
+            <span class="star" data-value="2">&#9733;</span>
+            <span class="star" data-value="3">&#9733;</span>
+            <span class="star" data-value="4">&#9733;</span>
+            <span class="star" data-value="5">&#9733;</span>
+        </div>
+        <style>
+            /* Centraliza o container das estrelas */
+            #star-rating {
+                font-size: 2rem;
+                color: #ccc;
+                /* Cor das estrelas inativas */
+                cursor: pointer;
+                display: flex;
+                justify-content: center;
+                /* Centraliza as estrelas horizontalmente */
+                gap: 5px;
+                /* Espaçamento entre as estrelas */
+                margin: 20px 0;
+                /* Adiciona um pouco de espaço acima e abaixo */
+            }
+
+            /* Estilo das estrelas selecionadas */
+            #star-rating .star.selected {
+                color: #ffcc00;
+                /* Cor das estrelas selecionadas */
+            }
+
+            /* Alinhamento do resultado da avaliação */
+            #rating-result {
+                text-align: center;
+                /* Centraliza o texto */
+                margin-top: 10px;
+                font-size: 1.2rem;
+                color: #333;
+            }
+        </style>
+        <p><strong>Sinopse:</strong> <span id="movie-synopsis">Sinopse do filme...</span></p>
+        <p><strong>Gênero:</strong> <span id="movie-genre">Gênero</span></p>
+        <p><strong>Data de Lançamento:</strong> <span id="movie-release-date">Data de Lançamento</span></p>
+
+        <!-- Seção do Trailer -->
+        <div id="movie-trailer">
+            <button id="assiste-trailer" onclick="playTrailer()">Assistir Trailer</button>
+        </div>
+
+        <h3 id="cine-next">Cinemas Próximos</h3>
+        <div id="map"></div> <!-- Adicionado para o mapa -->
+        <ul id="movie-cinemas">
+            <!-- Cinemas serão listados aqui -->
+        </ul>
+    </div>
+
+    <!-- Seção de Comentários -->
+    <div class="comments-section">
+        <h3 id="comenta-filme">Comentários</h3>
+        <div id="comments-list">
+            <!-- Comentários serão listados aqui -->
+        </div>
+
+        <textarea id="comment-input" placeholder="Escreva seu comentário..." rows="4" cols="50"></textarea><br>
+        <button id="submit-comment" onclick="submitComment()">Enviar Comentário</button>
+    </div>
+
+    </div>
+
+    <!-- |||FUNÇÕES||| -->
+    <script>
+        // Função para exibir os comentários
+        function displayComments() {
+            const movieId = getMovieFromURL();  // Pega o ID do filme da URL
+            const commentsList = document.getElementById('comments-list');
+
+            // Pega os comentários armazenados no localStorage para o filme específico
+            const comments = JSON.parse(localStorage.getItem(`comments_${movieId}`)) || [];
+
+            // Limpar a lista de comentários
+            commentsList.innerHTML = '';
+
+            // Exibir todos os comentários
+            comments.forEach(comment => {
+                const commentElement = document.createElement('div');
+                commentElement.classList.add('comment');
+                commentElement.innerHTML = `
+            <p>${comment.text}</p>
+            <small><strong style="color: #003366;">${comment.date}</strong></small>`;
+                commentsList.appendChild(commentElement);
+            });
+        }
+
+        // Função para enviar um comentário
+        function submitComment() {
+            const movieId = getMovieFromURL();  // Pega o ID do filme da URL
+            const commentInput = document.getElementById('comment-input');
+            const commentText = commentInput.value.trim();
+
+            if (commentText === '') {
+                alert('Por favor, escreva um comentário!');
+                return;
+            }
+
+            // Criar um novo comentário com data e texto
+            const comment = {
+                text: commentText,
+                date: new Date().toLocaleString()
+            };
+
+            // Obter os comentários armazenados para este filme
+            const comments = JSON.parse(localStorage.getItem(`comments_${movieId}`)) || [];
+            comments.push(comment);
+
+            // Salvar os comentários no localStorage, usando a chave do filme
+            localStorage.setItem(`comments_${movieId}`, JSON.stringify(comments));
+
+            // Limpar o campo de comentário e exibir os comentários atualizados
+            commentInput.value = '';
+            displayComments();
+        }
+
+        // Chamar a função para exibir os comentários quando a página carregar
+        document.addEventListener('DOMContentLoaded', displayComments);
+
+        // Configuração do mapa Leaflet
+        document.addEventListener('DOMContentLoaded', function () {
+            const map = L.map('map').setView([-12.9714, -38.5014], 13); // Coordenadas de Salvador, Bahia
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                maxZoom: 18,
+                attribution: '© OpenStreetMap contributors'
+            }).addTo(map);
+
+            // Adicionar marcador para um cinema (exemplo)
+            L.marker([-12.9714, -38.5014]).addTo(map)
+                .bindPopup('Exemplo de Cinema em Salvador')
+                .openPopup();
+        });
+    </script>
+
+  
+
+    
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="js/movie-details.js"></script>
+    <script src="js/configuracoes.js"></script>
+    <script src="js/theme.js" defer></script>
+</body>
+
+</html>

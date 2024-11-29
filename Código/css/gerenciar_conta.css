@@ -1,0 +1,1168 @@
+/* Estilos globais que continuam valendo para o restante da página */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #121212;
+    color: white;
+}
+
+/* Estilos do Header */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    background-color: #1a1a1a;
+}
+
+.logo {
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-family: 'Arial', sans-serif;
+    font-weight: bold;
+    letter-spacing: 2px;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.logo:hover {
+    color: #fdd835; /* Cor amarela no hover */
+    transform: scale(1.1); /* Efeito de aumento ao passar o mouse */
+    text-shadow: 2px 2px 12px rgba(0, 0, 0, 0.5);
+}
+
+#theme-status {
+    margin-top: 10px;
+    font-size: 18px;
+}
+
+/* Estilo para os botões */
+button {
+    background-color: #ff5733;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+button:hover {
+    background-color: #c44533;
+    transform: translateY(-5px);
+}
+
+/* Reset de configurações */
+.reset-settings {
+    margin-top: 20px;
+    text-align: center;
+}
+
+/* Estilo para os campos de entrada */
+.input-field {
+    width: 100%;
+    padding: 18px;
+    margin: 12px 0;
+    border-radius: 5px;
+    border: 1px solid #ff5733;
+    background-color: #333;
+    color: white;
+    font-size: 16px;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease;
+}
+
+.input-field:focus {
+    border-color: #c44533;
+    outline: none;
+}
+
+/* Adicionando borda ao container de login */
+.login-container {
+    background-color: inherit;
+    color: inherit;
+    padding: 20px;
+    border-radius: 10px;
+    width: 70%;
+    max-width: 350px;
+    margin: 50px auto;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.5);
+    text-align: center;
+    border: 2px solid #ff5733;
+}
+
+/* Estilo do botão "Entrar" */
+.submit-btn {
+    background-color: #ff5733;
+    color: white;
+    border: none;
+    padding: 18px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+
+.submit-btn:hover {
+    background-color: #c44533;
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.submit-btn:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(255, 87, 51, 0.6);
+}
+
+.submit-btn:active {
+    transform: translateY(2px);
+    background-color: #a43d2c;
+}
+
+/* Caixa "Manter Conectado" */
+.remember-me {
+    text-align: left;
+    margin-top: 10px;
+}
+
+.remember-me input {
+    margin-right: 5px;
+}
+
+/* Estilo para o link "Cadastre-se aqui" */
+.register-link a {
+    color: #ff5733;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.register-link a:hover {
+    color: #2c6e49;
+}
+
+/* Estilos do rodapé */
+.footer {
+    display: flex;
+    justify-content: space-around;
+    padding: 10px;
+    background-color: #1a1a1a;
+}
+
+.footer button {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 20px;
+}
+
+.footer button:hover {
+    color: #ff5733;
+}
+
+/* Ajustes de responsividade */
+@media (max-width: 480px) {
+    .login-container {
+        width: 90%;
+    }
+}
+/* Estilos globais que continuam valendo para o restante da página */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #121212;
+    color: white;
+}
+
+/* Estilos do Header */
+.header {
+    height: 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    background-color: #1a1a1a;
+}
+
+
+
+.logo {
+    font-size: 50px;
+    color: white;
+    font-family: 'Arial', sans-serif;
+    font-weight: bold;
+    letter-spacing: 2px;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.logo:hover {
+    color: #fdd835; /* Cor amarela no hover */
+    transform: scale(1.1); /* Efeito de aumento ao passar o mouse */
+    text-shadow: 2px 2px 12px rgba(0, 0, 0, 0.5);
+}
+
+#theme-status {
+    margin-top: 10px;
+    font-size: 18px;
+}
+
+/* Estilo para os botões */
+button {
+    background-color: #ff5733;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+button:hover {
+    background-color: #c44533;
+    transform: translateY(-5px);
+}
+
+/* Reset de configurações */
+.reset-settings {
+    margin-top: 20px;
+    text-align: center;
+}
+
+/* Estilo para os campos de entrada */
+.input-field {
+    width: 100%;
+    padding: 18px;
+    margin: 12px 0;
+    border-radius: 5px;
+    border: 1px solid #ff5733;
+    background-color: #333;
+    color: white;
+    font-size: 16px;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease;
+}
+
+.input-field:focus {
+    border-color: #c44533;
+    outline: none;
+}
+
+/* Adicionando borda ao container de login */
+.login-container {
+    background-color: inherit;
+    color: inherit;
+    padding: 20px;
+    border-radius: 10px;
+    width: 70%;
+    max-width: 350px;
+    margin: 50px auto;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.5);
+    text-align: center;
+    border: 2px solid #ff5733;
+}
+
+/* Estilo do botão "Entrar" */
+.submit-btn {
+    background-color: #ff5733;
+    color: white;
+    border: none;
+    padding: 18px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.submit-btn:hover {
+    background-color: #c44533;
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.submit-btn:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(255, 87, 51, 0.6);
+}
+
+.submit-btn:active {
+    transform: translateY(2px);
+    background-color: #a43d2c;
+}
+
+/* Caixa "Manter Conectado" */
+.remember-me {
+    text-align: left;
+    margin-top: 10px;
+}
+
+.remember-me input {
+    margin-right: 5px;
+}
+
+/* Estilo para o link "Cadastre-se aqui" */
+.register-link a {
+    color: #ff5733;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.register-link a:hover {
+    color: #2c6e49;
+}
+
+/* Estilos do rodapé */
+.footer {
+    display: flex;
+    justify-content: space-around;
+    padding: 10px;
+    background-color: #1a1a1a;
+}
+
+.footer button {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 20px;
+}
+
+.footer button:hover {
+    color: #ff5733;
+}
+
+/* Ajustes de responsividade */
+@media (max-width: 480px) {
+    .login-container {
+        width: 90%;
+    }
+}
+/* Estilos globais que continuam valendo para o restante da página */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #121212;
+    color: white;
+}
+
+/* Estilos do Header */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    background-color: #1a1a1a;
+}
+
+.logo {
+    font-size: 50px;
+    color: white;
+    font-family: 'Arial', sans-serif;
+    font-weight: bold;
+    letter-spacing: 2px;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.logo:hover {
+    color: #fdd835; /* Cor amarela no hover */
+    transform: scale(1.1); /* Efeito de aumento ao passar o mouse */
+    text-shadow: 2px 2px 12px rgba(0, 0, 0, 0.5);
+}
+
+#theme-status {
+    margin-top: 10px;
+    font-size: 18px;
+}
+
+/* Estilo para os botões */
+button {
+    background-color: #ff5733;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+button:hover {
+    background-color: #c44533;
+    transform: translateY(-5px);
+}
+
+/* Reset de configurações */
+.reset-settings {
+    margin-top: 20px;
+    text-align: center;
+}
+
+/* Estilo para os campos de entrada */
+.input-field {
+    width: 100%;
+    padding: 18px;
+    margin: 12px 0;
+    border-radius: 5px;
+    border: 1px solid #ff5733;
+    background-color: #333;
+    color: white;
+    font-size: 16px;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease;
+}
+
+.input-field:focus {
+    border-color: #c44533;
+    outline: none;
+}
+
+/* Adicionando borda ao container de login */
+.login-container {
+    background-color: inherit;
+    color: inherit;
+    padding: 20px;
+    border-radius: 10px;
+    width: 70%;
+    max-width: 350px;
+    margin: 50px auto;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.5);
+    text-align: center;
+    border: 2px solid #ff5733;
+}
+
+/* Estilo do botão "Entrar" */
+.submit-btn {
+    background-color: #ff5733;
+    color: white;
+    border: none;
+    padding: 18px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.submit-btn:hover {
+    background-color: #c44533;
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.submit-btn:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(255, 87, 51, 0.6);
+}
+
+.submit-btn:active {
+    transform: translateY(2px);
+    background-color: #a43d2c;
+}
+
+/* Caixa "Manter Conectado" */
+.remember-me {
+    text-align: left;
+    margin-top: 10px;
+}
+
+.remember-me input {
+    margin-right: 5px;
+}
+
+/* Estilo para o link "Cadastre-se aqui" */
+.register-link a {
+    color: #ff5733;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.register-link a:hover {
+    color: #2c6e49;
+}
+
+/* Estilos do rodapé */
+.footer {
+    display: flex;
+    justify-content: space-around;
+    padding: 10px;
+    background-color: #1a1a1a;
+}
+
+.footer button {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 20px;
+}
+
+.footer button:hover {
+    color: #ff5733;
+}
+
+/* Ajustes de responsividade */
+@media (max-width: 480px) {
+    .login-container {
+        width: 90%;
+    }
+}
+/* Estilos globais que continuam valendo para o restante da página */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #121212;
+    color: white;
+}
+
+/* Estilos do Header */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    background-color: #1a1a1a;
+}
+
+.logo {
+    font-size: 50px;
+    color: white;
+    font-family: 'Arial', sans-serif;
+    font-weight: bold;
+    letter-spacing: 2px;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.logo:hover {
+    color: #fdd835; /* Cor amarela no hover */
+    transform: scale(1.1); /* Efeito de aumento ao passar o mouse */
+    text-shadow: 2px 2px 12px rgba(0, 0, 0, 0.5);
+}
+
+#theme-status {
+    margin-top: 10px;
+    font-size: 18px;
+}
+
+/* Estilo para os botões */
+button {
+    background-color: #ff5733;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+button:hover {
+    background-color: #c44533;
+    transform: translateY(-5px);
+}
+
+/* Reset de configurações */
+.reset-settings {
+    margin-top: 20px;
+    text-align: center;
+}
+
+/* Estilo para os campos de entrada */
+.input-field {
+    width: 100%;
+    padding: 18px;
+    margin: 12px 0;
+    border-radius: 5px;
+    border: 1px solid #ff5733;
+    background-color: #333;
+    color: white;
+    font-size: 16px;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease;
+}
+
+.input-field:focus {
+    border-color: #c44533;
+    outline: none;
+}
+
+/* Adicionando borda ao container de login */
+.login-container {
+    background-color: inherit;
+    color: inherit;
+    padding: 20px;
+    border-radius: 10px;
+    width: 70%;
+    max-width: 350px;
+    margin: 50px auto;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.5);
+    text-align: center;
+    border: 2px solid #ff5733;
+}
+
+/* Estilo do botão "Entrar" */
+.submit-btn {
+    background-color: #ff5733;
+    color: white;
+    border: none;
+    padding: 18px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.submit-btn:hover {
+    background-color: #c44533;
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.submit-btn:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(255, 87, 51, 0.6);
+}
+
+.submit-btn:active {
+    transform: translateY(2px);
+    background-color: #a43d2c;
+}
+
+/* Caixa "Manter Conectado" */
+.remember-me {
+    text-align: left;
+    margin-top: 10px;
+}
+
+.remember-me input {
+    margin-right: 5px;
+}
+
+/* Estilo para o link "Cadastre-se aqui" */
+.register-link a {
+    color: #ff5733;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.register-link a:hover {
+    color: #2c6e49;
+}
+
+/* Estilos do rodapé */
+.footer {
+    display: flex;
+    justify-content: space-around;
+    padding: 10px;
+    background-color: #1a1a1a;
+}
+
+.footer button {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 20px;
+}
+
+.footer button:hover {
+    color: #ff5733;
+}
+
+/* Ajustes de responsividade */
+@media (max-width: 480px) {
+    .login-container {
+        width: 90%;
+    }
+}
+/* Estilos globais que continuam valendo para o restante da página */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #121212;
+    color: white;
+}
+
+/* Estilos do Header */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    background-color: #1a1a1a;
+}
+
+.logo {
+    font-size: 50px;
+    color: white;
+    font-family: 'Arial', sans-serif;
+    font-weight: bold;
+    letter-spacing: 2px;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.logo:hover {
+    color: #fdd835; /* Cor amarela no hover */
+    transform: scale(1.1); /* Efeito de aumento ao passar o mouse */
+    text-shadow: 2px 2px 12px rgba(0, 0, 0, 0.5);
+}
+
+#theme-status {
+    margin-top: 10px;
+    font-size: 18px;
+}
+
+/* Estilo para os botões */
+button {
+    background-color: #ff5733;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+button:hover {
+    background-color: #c44533;
+    transform: translateY(-5px);
+}
+
+/* Reset de configurações */
+.reset-settings {
+    margin-top: 20px;
+    text-align: center;
+}
+
+/* Estilo para os campos de entrada */
+.input-field {
+    width: 100%;
+    padding: 18px;
+    margin: 12px 0;
+    border-radius: 5px;
+    border: 1px solid #ff5733;
+    background-color: #333;
+    color: white;
+    font-size: 16px;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease;
+}
+
+.input-field:focus {
+    border-color: #c44533;
+    outline: none;
+}
+
+/* Adicionando borda ao container de login */
+.login-container {
+    background-color: inherit;
+    color: inherit;
+    padding: 20px;
+    border-radius: 10px;
+    width: 70%;
+    max-width: 350px;
+    margin: 50px auto;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.5);
+    text-align: center;
+    border: 2px solid #ff5733;
+}
+
+/* Estilo do botão "Entrar" */
+.submit-btn {
+    background-color: #ff5733;
+    color: white;
+    border: none;
+    padding: 18px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.submit-btn:hover {
+    background-color: #c44533;
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.submit-btn:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(255, 87, 51, 0.6);
+}
+
+.submit-btn:active {
+    transform: translateY(2px);
+    background-color: #a43d2c;
+}
+
+/* Caixa "Manter Conectado" */
+.remember-me {
+    text-align: left;
+    margin-top: 10px;
+}
+
+.remember-me input {
+    margin-right: 5px;
+}
+
+/* Estilo para o link "Cadastre-se aqui" */
+.register-link a {
+    color: #ff5733;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.register-link a:hover {
+    color: #2c6e49;
+}
+
+/* Estilos do rodapé */
+.footer {
+    display: flex;
+    justify-content: space-around;
+    padding: 10px;
+    background-color: #1a1a1a;
+}
+
+.footer button {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 20px;
+}
+
+.footer button:hover {
+    color: #ff5733;
+}
+
+/* Ajustes de responsividade */
+@media (max-width: 480px) {
+    .login-container {
+        width: 90%;
+    }
+}
+/* Estilos globais que continuam valendo para o restante da página */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #121212;
+    color: white;
+}
+
+/* Estilos do Header */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    background-color: #1a1a1a;
+}
+
+.logo {
+    font-size: 50px;
+    color: white;
+    font-family: 'Arial', sans-serif;
+    font-weight: bold;
+    letter-spacing: 2px;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.logo:hover {
+    color: #fdd835; /* Cor amarela no hover */
+    transform: scale(1.1); /* Efeito de aumento ao passar o mouse */
+    text-shadow: 2px 2px 12px rgba(0, 0, 0, 0.5);
+}
+
+#theme-status {
+    margin-top: 10px;
+    font-size: 18px;
+}
+
+/* Estilo para os botões */
+button {
+    background-color: #ff5733;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+button:hover {
+    background-color: #c44533;
+    transform: translateY(-5px);
+}
+
+/* Reset de configurações */
+.reset-settings {
+    margin-top: 20px;
+    text-align: center;
+}
+
+/* Estilo para os campos de entrada */
+.input-field {
+    width: 100%;
+    padding: 18px;
+    margin: 12px 0;
+    border-radius: 5px;
+    border: 1px solid #ff5733;
+    background-color: #333;
+    color: white;
+    font-size: 16px;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease;
+}
+
+.input-field:focus {
+    border-color: #c44533;
+    outline: none;
+}
+
+/* Adicionando borda ao container de login */
+.login-container {
+    background-color: inherit;
+    color: inherit;
+    padding: 20px;
+    border-radius: 10px;
+    width: 70%;
+    max-width: 350px;
+    margin: 50px auto;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.5);
+    text-align: center;
+    border: 2px solid #ff5733;
+}
+
+/* Estilo do botão "Entrar" */
+.submit-btn {
+    background-color: #ff5733;
+    color: white;
+    border: none;
+    padding: 18px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.submit-btn:hover {
+    background-color: #c44533;
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.submit-btn:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(255, 87, 51, 0.6);
+}
+
+.submit-btn:active {
+    transform: translateY(2px);
+    background-color: #a43d2c;
+}
+
+/* Caixa "Manter Conectado" */
+.remember-me {
+    text-align: left;
+    margin-top: 10px;
+}
+
+.remember-me input {
+    margin-right: 5px;
+}
+
+/* Estilo para o link "Cadastre-se aqui" */
+.register-link a {
+    color: #ff5733;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.register-link a:hover {
+    color: #2c6e49;
+}
+
+/* Estilos do rodapé */
+.footer {
+    display: flex;
+    justify-content: space-around;
+    padding: 10px;
+    background-color: #1a1a1a;
+}
+
+.footer button {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 20px;
+}
+
+.footer button:hover {
+    color: #ff5733;
+}
+
+/* Ajustes de responsividade */
+@media (max-width: 480px) {
+    .login-container {
+        width: 90%;
+    }
+}
+
+ /* Container geral */
+ #actionbotao {
+    display: flex;
+    flex-direction: column;
+    gap: 15px; /* Espaçamento entre os botões */
+    align-items: center; /* Centraliza os botões */
+    padding: 20px;
+    border-radius: 8px; /* Bordas arredondadas */
+    width: 250px;
+    margin: 0 auto;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+}
+
+/* Estilo para os botões */
+button {
+    padding: 12px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    width: 100%; /* Deixa os botões com a mesma largura */
+}
+
+
+/* Efeito de hover para os botões */
+button:hover {
+    transform: scale(1.05); /* Aumenta ligeiramente o tamanho */
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.1); /* Sombra mais forte ao passar o mouse */
+}
+
+/* Efeito de foco para os botões */
+button:focus {
+    outline: none;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+}
+
+/* Definindo temas claros e escuros */
+body {
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+  
+  body.light-theme {
+    background-color: #ffffff;
+    color: #000000; /* Texto preto no modo claro */
+  }
+  
+  body.dark-theme {
+    background-color: #121212;
+    color: #ffffff; /* Texto branco no modo escuro */
+  }
+
+
+
+  /* Configurações de lista de desejos e filmes */
+  #wishlist .movie {
+    text-align: left;
+    width: 120px;
+    margin-right: 10px;
+  }
+  
+  #clear-wishlist {
+    margin-top: 70px;
+    margin-left: 20px;
+    width: 960px;
+    height: 40px;
+    border-radius: 20px;
+  }
+  
+.fav{
+    align-items: center;
+    justify-content: center;
+}
+
+/* Estilo das imagens dos filmes */
+.movie img {
+    width: 400px;
+    height: 550px;
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+  }
+  
+  /* Alteração de cor das imagens e do texto do título ao passar o mouse */
+  .movie:hover {
+    transform: scale(1.05);
+  }
+
+
+  /* Estilo do contêiner do user-info */
+  #user-info {
+    padding: 20px;
+    border-radius: 8px; /* Bordas arredondadas */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra suave para destacar */
+    text-align: center; /* Centraliza o conteúdo dentro do contêiner */
+  }
+
+  /* Estilo para o título */
+  #dados-user {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #333;
+  }
+
+  /* Estilo para os parágrafos dentro do #user-info */
+  #user-info p {
+    font-size: 18px;
+    margin: 10px 0;
+  }
+
+  /* Estilo do ícone de olho */
+  .eye-icon {
+    cursor: pointer;
+    margin-left: 10px;
+    font-size: 1.5em;
+  }
+
+  #fav{
+    padding: 20px;
+    border-radius: 8px; /* Bordas arredondadas */
+    box-shadow: 0 15px 8px rgba(0, 0, 0, 0.1); /* Sombra suave para destacar */
+    text-align: center; /* Centraliza o conteúdo dentro do contêiner */
+  }
