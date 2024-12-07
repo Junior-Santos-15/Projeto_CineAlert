@@ -1,0 +1,89 @@
+CREATE DATABASE IF NOT EXISTS cinealert;
+USE cinealert;
+
+CREATE TABLE Usuario (
+    IDusuario INT AUTO_INCREMENT PRIMARY KEY,
+    username VARCHAR(50) NOT NULL UNIQUE,
+    emailUser VARCHAR(100) NOT NULL UNIQUE,
+    senhaUser VARCHAR(255) NOT NULL,
+    telefoneUser VARCHAR(20),
+    sexoUser ENUM('Masculino', 'Feminino') NOT NULL,
+    avatarUser VARCHAR(255),
+    dat_Criacao_user TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    ultima_atualizacao_user TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON
+ UPDATE CURRENT_TIMESTAMP
+);
+
+CREATE TABLE Filmes (
+    IDfilme INT AUTO_INCREMENT PRIMARY KEY,
+    tituloFilme VARCHAR(255) NOT NULL,
+    sinopse_ TEXT,
+    genero VARCHAR(50) NOT NULL,
+    datLancamento DATE NOT NULL,
+    trailerUrl VARCHAR(255),
+    dat_Criacao_filmes TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    ultima_atualizacao_filmes TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON
+ UPDATE CURRENT_TIMESTAMP
+);
+
+CREATE TABLE Cinemas (
+    IDcinemas INT NOT NULL,
+    nomeCinema VARCHAR(255) NOT NULL,
+    latitudeCinema DECIMAL(10, 8),
+    longitudeCinema DECIMAL(11, 8),
+    fk_Filmes_IDfilme INTEGER
+);
+
+CREATE TABLE Favoritos (
+    IDfavoritos INT NOT NULL,
+    tituloFavorito VARCHAR(255) NOT NULL,
+    URLfavorito VARCHAR(255),
+    dat_Criacao_favoritos TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    fk_Usuario_IDusuario INTEGER
+);
+
+CREATE TABLE Avaliacoes (
+    IDavaliacao INTEGER PRIMARY KEY,
+    rating INT CHECK (rating BETWEEN 1 AND 5),
+    dat_Criacao_avaliacao TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    fk_Filmes_IDfilme INTEGER,
+    fk_Usuario_IDusuario INTEGER
+);
+
+CREATE TABLE Comentarios (
+    IDcomentario INTEGER PRIMARY KEY,
+    comment TEXT NOT NULL,
+    datComentario TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    fk_Filmes_IDfilme INTEGER,
+    fk_Usuario_IDusuario INTEGER
+);
+ 
+ALTER TABLE Cinemas ADD CONSTRAINT FK_Cinemas_2
+    FOREIGN KEY (fk_Filmes_IDfilme)
+    REFERENCES Filmes (IDfilme)
+    ON DELETE RESTRICT;
+ 
+ALTER TABLE Favoritos ADD CONSTRAINT FK_Favoritos_2
+    FOREIGN KEY (fk_Usuario_IDusuario)
+    REFERENCES Usuario (IDusuario)
+    ON DELETE RESTRICT;
+ 
+ALTER TABLE Avaliacoes ADD CONSTRAINT FK_Avaliacoes_2
+    FOREIGN KEY (fk_Filmes_IDfilme)
+    REFERENCES Filmes (IDfilme)
+    ON DELETE CASCADE;
+ 
+ALTER TABLE Avaliacoes ADD CONSTRAINT FK_Avaliacoes_3
+    FOREIGN KEY (fk_Usuario_IDusuario)
+    REFERENCES Usuario (IDusuario)
+    ON DELETE CASCADE;
+ 
+ALTER TABLE Comentarios ADD CONSTRAINT FK_Comentarios_2
+    FOREIGN KEY (fk_Filmes_IDfilme)
+    REFERENCES Filmes (IDfilme)
+    ON DELETE CASCADE;
+ 
+ALTER TABLE Comentarios ADD CONSTRAINT FK_Comentarios_3
+    FOREIGN KEY (fk_Usuario_IDusuario)
+    REFERENCES Usuario (IDusuario)
+    ON DELETE CASCADE;
